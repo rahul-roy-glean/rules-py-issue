@@ -1,0 +1,6 @@
+common --noenable_bzlmod
+build --symlink_prefix=.bazel/
+build --enable_runfiles
+test --test_output=errors
+
+

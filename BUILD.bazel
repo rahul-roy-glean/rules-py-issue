@@ -1,0 +1,24 @@
+load("@rules_python//python:py_library.bzl", "py_library")
+load("@rules_python//python:py_test.bzl", "py_test")
+
+exports_files(
+    [
+        "requirements.in",
+        "requirements.txt",
+    ],
+)
+
+py_library(
+    name = "foo",
+    srcs = ["foo.py"],
+    deps = [],
+)
+
+py_test(
+    name = "foo_test",
+    srcs = ["foo_test.py"],
+    deps = [
+        ":foo",
+        "@pip//absl_py",
+    ],
+)
